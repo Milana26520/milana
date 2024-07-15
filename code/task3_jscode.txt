@@ -1,0 +1,36 @@
+function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    const dueDate = document.getElementById('dueDate');
+    const priority = document.getElementById('priority');
+    const taskList = document.getElementById('taskList');
+
+    if (taskInput.value.trim() !== '') {
+        const li = document.createElement('li');
+        li.className = priority.value;
+
+        const taskDetails = document.createElement('div');
+        taskDetails.className = 'task-details';
+        taskDetails.innerHTML = `<span>${taskInput.value}</span> <span>${dueDate.value}</span>`;
+
+        const completeButton = document.createElement('button');
+        completeButton.textContent = 'Complete';
+        completeButton.onclick = () => {
+            li.classList.toggle('completed');
+        };
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = () => {
+            taskList.removeChild(li);
+        };
+
+        li.appendChild(taskDetails);
+        li.appendChild(completeButton);
+        li.appendChild(deleteButton);
+        taskList.appendChild(li);
+
+        taskInput.value = '';
+        dueDate.value = '';
+        priority.value = 'low';
+    }
+}
