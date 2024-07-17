@@ -1,24 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
-    <link rel="stylesheet" href="style.css">
+	<title>simple calculator</title>
+	<script type="text/javascript">
+		function display(a)
+		{
+			document.getElementById("res").value=document.getElementById("res").value.toString()+a;
+		}
+		function calc()
+		{
+			document.getElementById("res").value=eval(document.getElementById("res").value);
+		}
+		function clr()
+		{
+			document.getElementById("res").value=""
+		}
+	</script>
 </head>
 <body>
-    <div class="container">
-        <h2>My To-Do List</h2>
-        <input type="text" id="taskInput" placeholder="Add a new task...">
-        <input type="date" id="dueDate">
-        <select id="priority">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select>
-        <button onclick="addTask()">Add</button>
-        <ul id="taskList"></ul>
-    </div>
-    <script src="script.js"></script>
+	<h2>SIMPLE CALCULATOR</h2>
+	<form>
+		<input id="res" type="text" name="">
+		<table border=3>
+			<tr>
+			<td><input type="button" value="1" onclick="display('1')"></td>
+			<td><input type="button" value="2" onclick="display('2')"></td>
+			<td><input type="button" value="3" onclick="display('3')"></td>
+			<td><input type="button" value="+" onclick="display('+')"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="4" onclick="display('4')"></td>
+			<td><input type="button" value="5" onclick="display('5')"></td>
+			<td><input type="button" value="6" onclick="display('6')"></td>
+			<td><input type="button" value="-" onclick="display('-')"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="7" onclick="display('7')"></td>
+			<td><input type="button" value="8" onclick="display('8')"></td>
+			<td><input type="button" value="9" onclick="display('9')"></td>
+			<td><input type="button" value="*" onclick="display('*')"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="/" onclick="display('/')"></td>
+			<td><input type="button" value="0" onclick="display('0')"></td>
+			<td><input type="button" value="=" onclick="calc()"></td>
+			<td><input type="button" value="clear" onclick="clr()"></td>
+		</tr>
+	</table>
+	</form>
 </body>
 </html>
